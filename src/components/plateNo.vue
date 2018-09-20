@@ -69,6 +69,7 @@
 /* eslint-disable indent,semi */
   export default {
     name: 'plateno',
+    props: ['clearPlateNo'],
     data () {
       return {
         plateNo: '',
@@ -89,6 +90,11 @@
       }
     },
     watch: {
+      clearPlateNo (val) {
+        if (val) {
+          this.plateNo = '';
+        }
+      },
       plateNo (newVal, oldVal) {
         // 1.判断车牌到第几位了
         const len = newVal.length;
@@ -99,7 +105,7 @@
       }
     },
     methods: {
-      showCarNum() {
+      showCarNum () {
         // 1.判断车牌到第几位了
         const len = this.plateNo.length;
         // 2.根据车牌位数选择显示那个桌面框
@@ -107,7 +113,10 @@
         this.$refs.keyboard.classList.remove('animationDown');
         this.$refs.keyboard.classList.add('animationUp');
       },
-      btnWordClick($event) {
+      btnWordClick ($event) {
+        // const btn = $event.target;
+        // const btnColor = btn.style.backgroundColor;
+        // btn.style.backgroundColor = 'red';
         const carText = $event.target.innerText;
         const plateNo = this.plateNo + carText;
         if (plateNo.length > 8) {
@@ -126,7 +135,7 @@
           this.closeKeyboard();
         }
       },
-      deletePlateNo() {
+      deletePlateNo () {
         const len = this.plateNo.length;
         if (len > 0) {
           this.plateNo = this.plateNo.substr(0, len - 1);
@@ -138,7 +147,7 @@
         this.$refs.keyboard.classList.add('animationDown');
       },
       // 根据车牌位数选择显示那个桌面框，同时屏蔽其他相关功能
-      changeShowPlateNoPanel(len) {
+      changeShowPlateNoPanel (len) {
         switch (len) {
           case 0:
             this.showPlateNoPanel('CARTEXT');
@@ -182,7 +191,7 @@
         }
       },
       // 显示车牌面板
-      showPlateNoPanel(param) {
+      showPlateNoPanel (param) {
         const carText = this.$refs.carText;
         const carNum = this.$refs.carNum;
         const carNumLast = this.$refs.carNumLast;
@@ -235,6 +244,10 @@
   button:disabled {
     background: #f4f4f4 !important;
     color: #8f8f8f !important;
+  }
+
+  button:active {
+    background-color: #79b8ff;
   }
 
   .keyboard {
