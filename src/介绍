@@ -1,0 +1,17 @@
+（1）assets文件：
+  用于存放静态资源（css、image），assets打包时路径会经过webpack中的file-loader
+    编译（因此，assets需要使用绝对路径）成js
+
+（2）components文件夹：
+  用来存放.vue组件(实现复用等功能，如：过滤器，列表项等)
+
+（3）router文件夹：
+  在router/index.js文件中配置页面路由
+
+（4）App.vue：
+  是整个项目的主组件，所有页面都是通过使用<router-view/>开放入口在App.vue下进行切换
+    的（所有的路由都是App.vue的子组件）
+
+（5）main.js：
+  入口js文件（全局js，你可以在这里：初始化vue实例、require/import需要的插件、
+  注入router路由、引入store状态管理）

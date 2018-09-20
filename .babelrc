@@ -1,0 +1,20 @@
+//浏览器解析的兼容配置，该文件主要是对预设（presets）和插件（plugins）进行配置，
+//因此不同的转译器作用不同的配置项，大致可分为：语法转义器、补丁转义器、sx和flow插件
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+      }
+    }],
+    "stage-2"
+  ],
+  "plugins": ["transform-vue-jsx", "transform-runtime"],
+  "env": {
+    "test": {
+      "presets": ["env", "stage-2"],
+      "plugins": ["transform-vue-jsx", "transform-es2015-modules-commonjs", "dynamic-import-node"]
+    }
+  }
+}
