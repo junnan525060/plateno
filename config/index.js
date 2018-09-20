@@ -45,7 +45,7 @@ module.exports = {
 
     assetsRoot: path.resolve(__dirname, '../dist'),//打包编译的根路径(默认dist，存放打包压缩后的代码)
     assetsSubDirectory: 'static',//静态资源文件夹(一般存放css、js、image等文件)
-    assetsPublicPath: '/',//发布的根目录(dist文件夹所在路径)
+    assetsPublicPath: '/plateno/',//发布的根目录(dist文件夹所在路径)
 
     /**
      * Source Maps

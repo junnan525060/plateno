@@ -1,38 +1,38 @@
 <template>
   <div>
     <plateno :clearPlateNo="clearPlate" @getPlateNo="getPlate"></plateno>
-
-    <button style="width: 80%;background-color: #79b8ff" @click="clearCarNo">测试</button>
+    <br/>
+    <button style="width: 80%;height:48px;border:none;background-color: #79b8ff" @click="clearCarNo">清空数据</button>
   </div>
 
 </template>
 
 <script>
 
-import plateno from './plateNo'
+  import plateno from './plateNo'
 
-export default {
-  name: 'HelloWorld',
-  components: {
-    plateno
-  },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App',
-      plateNo: '',
-      clearPlate: false // 清空车牌号后需要及时更新状态
-    }
-  },
-  methods: {
-    getPlate (msg) {
-      this.clearPlate = false
-      console.log(msg)
+  export default {
+    name: 'HelloWorld',
+    components: {
+      plateno
     },
-    clearCarNo () {
-      this.clearPlate = true
+    data () {
+      return {
+        msg: 'Welcome to Your Vue.js App',
+        plateNo: '',
+        clearPlate: false // 清空车牌号后需要及时更新状态
+      }
+    },
+    methods: {
+      getPlate (msg) {
+        this.clearPlate = false
+        console.log(msg)
+      },
+      clearCarNo () {
+        this.clearPlate = true
+      }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
