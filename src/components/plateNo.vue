@@ -67,6 +67,7 @@
 
 <script>
 /* eslint-disable indent,semi */
+import '../../static/js/flex';
   export default {
     name: 'plateno',
     props: ['clearPlateNo'],
